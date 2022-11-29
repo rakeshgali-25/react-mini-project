@@ -1,0 +1,65 @@
+.slider-container {
+}
+
+.top-rated-list {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  flex-wrap: wrap;
+  list-style-type: none;
+}
+
+.top-rated-image {
+  height: 70px;
+}
+
+.image-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.slider {
+  display: flex;
+
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.top-rated-list-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: 5px;
+}
+
+.title-name {
+  font-family: 'Roboto';
+
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 32px;
+
+  text-align: center;
+
+  color: #334155;
+}
+
+.author-name {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+
+  color: #475569;
+}
+
+.slick-buttons {
+  background: #989898;
+  border-radius: 12px;
+  transform: rotate(180deg);
+}
