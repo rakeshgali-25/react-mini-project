@@ -6,18 +6,18 @@ import 'slick-carousel/slick/slick-theme.css'
 import './index.css'
 
 const ReactSlick = props => {
-  const {booksList} = props
+  const {booksList, booksNum} = props
   const settings = {
     dots: false,
-    slidesToShow: 3,
+    slidesToShow: booksNum,
     slidesToScroll: 1,
     dotsClass: 'slick-buttons',
   }
   return (
-    <div className="slider-container">
+    <ul className="slider-container">
       <Slider {...settings} className="slider">
         {booksList.map(each => (
-          <div className="top-rated-list-item">
+          <li className="top-rated-list-item" key={each.id}>
             <div className="image-container">
               <img
                 src={each.coverPic}
@@ -28,10 +28,10 @@ const ReactSlick = props => {
             </div>
             <p className="title-name">{each.title}</p>
             <p className="author-name">{each.authorName}</p>
-          </div>
+          </li>
         ))}
       </Slider>
-    </div>
+    </ul>
   )
 }
 

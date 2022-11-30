@@ -34,7 +34,7 @@ class Home extends Component {
     }
     const response = await fetch(apiUrl, options)
     const data = await response.json()
-    console.log(data)
+
     const updatedData = data.books.map(each => ({
       id: each.id,
       coverPic: each.cover_pic,
@@ -70,7 +70,10 @@ class Home extends Component {
             Find Books
           </button>
         </div>
-        <ReactSlick booksList={booksList} />
+
+        <div className="carousel-desktop">
+          <ReactSlick booksList={booksList} booksNum={3} />
+        </div>
       </div>
     )
   }
@@ -98,19 +101,21 @@ class Home extends Component {
       <div className="home-container">
         <Header />
         <div className="home-content">
-          <h1>Find Your Next Favorite Books?</h1>
-          <p>
-            You are in the right place. Tell us what titles or genres you have
-            enjoyed in the past, and we will give you surprisingly insightful
-            recommendations.
-          </p>
-          <button
-            type="button"
-            onClick={this.onClickFindBooks}
-            className="find-books-button-mobile"
-          >
-            Find Books
-          </button>
+          <div className="home-top-container">
+            <h1 className="top-home-heading">Find Your Next Favorite Books?</h1>
+            <p className="top-home-para">
+              You are in the right place. Tell us what titles or genres you have
+              enjoyed in the past, and we will give you surprisingly insightful
+              recommendations.
+            </p>
+            <button
+              type="button"
+              onClick={this.onClickFindBooks}
+              className="find-books-button-mobile"
+            >
+              Find Books
+            </button>
+          </div>
           {this.renderCarousel()}
           <div className="footer-container">
             <div className="icons-container">

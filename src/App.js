@@ -39,6 +39,7 @@ class App extends Component {
           <Route exact path="/login" component={Login} />
           <Route exact path="/" component={Home} />
           <Route exact path="/bookshelves" component={Bookshelves} />
+          <Route exact path="/book-hub/books/:id" component={BookDetails} />
         </Switch>
       </>
     )

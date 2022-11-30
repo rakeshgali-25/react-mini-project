@@ -25,7 +25,7 @@
 
   width: 104px;
   height: 36px;
-
+  border: none;
   background: #0284c7;
   border-radius: 4px;
 
@@ -43,8 +43,8 @@
   box-shadow: 0px 0px 1px rgba(40, 41, 61, 0.08),
     0px 1px 2px rgba(96, 97, 112, 0.16);
   border-radius: 16px;
-
-  max-width: 1050px;
+  width: 90%;
+  max-width: 1000px;
   padding: 30px;
   display: flex;
   flex-direction: column;
@@ -75,7 +75,7 @@
 
     width: 104px;
     height: 36px;
-
+    border: none;
     background: #0284c7;
     border-radius: 4px;
 
@@ -94,8 +94,9 @@
 .footer-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
+  flex-grow: 1;
 }
 
 .icons-container {
@@ -103,4 +104,39 @@
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+}
+
+.home-top-container {
+  width: 90%;
+  max-width: 1000px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 10px;
+  padding-left: 0px;
+  padding-bottom: 10px;
+}
+
+.top-home-para {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 32px;
+  padding-bottom: 0px;
+
+  display: flex;
+  align-items: center;
+
+  color: #475569;
+}
+
+.top-home-heading {
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 64px;
+  display: flex;
+  align-items: center;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+  color: #1e293b;
 }
