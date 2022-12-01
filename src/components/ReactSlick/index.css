@@ -10,7 +10,8 @@
 }
 
 .top-rated-image {
-  height: 70px;
+  height: 100px;
+  width: 100px;
 }
 
 .image-container {

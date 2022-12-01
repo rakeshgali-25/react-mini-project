@@ -5,6 +5,7 @@ import Home from './components/Home'
 import Login from './components/Login'
 import Bookshelves from './components/Bookshelves'
 import BookDetails from './components/BookDetails'
+import ProtectedRoute from './components/ProtectedRoute'
 
 // use the below bookshelvesList for rendering read status of book items in Bookshelves Route
 
@@ -37,9 +38,13 @@ class App extends Component {
       <>
         <Switch>
           <Route exact path="/login" component={Login} />
-          <Route exact path="/" component={Home} />
-          <Route exact path="/bookshelves" component={Bookshelves} />
-          <Route exact path="/book-hub/books/:id" component={BookDetails} />
+          <ProtectedRoute exact path="/" component={Home} />
+          <ProtectedRoute exact path="/bookshelves" component={Bookshelves} />
+          <ProtectedRoute
+            exact
+            path="/book-hub/books/:id"
+            component={BookDetails}
+          />
         </Switch>
       </>
     )

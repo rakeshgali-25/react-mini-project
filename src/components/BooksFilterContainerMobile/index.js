@@ -25,7 +25,7 @@ const bookshelvesList = [
   },
 ]
 
-class BooksFilterContainer extends Component {
+class BooksFilterContainerMobile extends Component {
   state = {activeId: bookshelvesList[0].value}
 
   filterClicked = event => {
@@ -40,18 +40,18 @@ class BooksFilterContainer extends Component {
     const {activeId} = this.state
 
     return (
-      <div className="filter-container">
+      <div className="filter-container-mobile">
         <p className="title-name">Bookshelves</p>
-        <ul className="filter-list">
+        <ul className="filter-list-mobile">
           {bookshelvesList.map(each => {
-            const activeBtn = activeId === each.value ? 'active' : ''
+            const activeBtn = activeId === each.value ? 'active-mobile' : ''
             return (
-              <li className="list-item" key={each.id}>
+              <li className="list-item-mobile" key={each.id}>
                 <button
                   type="button"
                   value={each.value}
                   onClick={this.filterClicked}
-                  className={`${activeBtn} filter-button `}
+                  className={`${activeBtn} filter-button-mobile `}
                 >
                   {each.label}
                 </button>
@@ -63,4 +63,4 @@ class BooksFilterContainer extends Component {
     )
   }
 }
-export default BooksFilterContainer
+export default BooksFilterContainerMobile

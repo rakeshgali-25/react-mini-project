@@ -31,4 +31,5 @@
 .filter-button {
   background-color: transparent;
   border: none;
+  font-weight: bold;
 }

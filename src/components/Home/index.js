@@ -24,6 +24,7 @@ class Home extends Component {
   }
 
   getTheData = async () => {
+    this.setState({apiStatus: apiConstants.inprogress})
     const apiUrl = 'https://apis.ccbp.in/book-hub/top-rated-books'
     const jwtToken = Cookies.get('jwt_token')
     const options = {
@@ -33,15 +34,20 @@ class Home extends Component {
       },
     }
     const response = await fetch(apiUrl, options)
-    const data = await response.json()
+    console.log(response)
+    if (response.ok === true) {
+      const data = await response.json()
 
-    const updatedData = data.books.map(each => ({
-      id: each.id,
-      coverPic: each.cover_pic,
-      authorName: each.author_name,
-      title: each.title,
-    }))
-    this.setState({apiStatus: apiConstants.success, booksList: updatedData})
+      const updatedData = data.books.map(each => ({
+        id: each.id,
+        coverPic: each.cover_pic,
+        authorName: each.author_name,
+        title: each.title,
+      }))
+      this.setState({apiStatus: apiConstants.success, booksList: updatedData})
+    } else {
+      this.setState({apiStatus: apiConstants.failure})
+    }
   }
 
   onClickFindBooks = () => {
@@ -78,8 +84,41 @@ class Home extends Component {
     )
   }
 
+  onClickTryAgain = () => {
+    this.getTheData()
+  }
+
   renderFailure = () => {
-    console.log('failed')
+    const {booksList} = this.state
+    return (
+      <div className="carousel-container">
+        <div className="carousel-heading-container">
+          <p className="title-name">Top Rated Books</p>
+          <button
+            type="button"
+            onClick={this.onClickFindBooks}
+            className="find-books-button"
+          >
+            Find Books
+          </button>
+        </div>
+        <div className="failure-container">
+          <img
+            src="https://assets.ccbp.in/frontend/react-js/meetup/not-found-img.png"
+            alt="failure view"
+            className="failure-img"
+          />
+          <p>Something went wrong. Please try again</p>
+          <button
+            type="button"
+            onClick={this.onClickTryAgain}
+            className="try-again-button"
+          >
+            Try again
+          </button>
+        </div>
+      </div>
+    )
   }
 
   renderCarousel = () => {
@@ -124,7 +163,7 @@ class Home extends Component {
               <FaInstagram />
               <FaYoutube />
             </div>
-            <p>Contact Us</p>
+            <p>Contact us</p>
           </div>
         </div>
       </div>
